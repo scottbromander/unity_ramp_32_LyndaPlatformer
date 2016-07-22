@@ -4,21 +4,12 @@ using System.Collections.Generic;
 
 public class ButtonState{
 	public bool value;
+	public float holdTime = 0;
 }
 
 public class InputState : MonoBehaviour {
 
 	private Dictionary<Buttons, ButtonState> buttonStates = new Dictionary<Buttons, ButtonState> ();
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void SetButtonValue(Buttons key, bool value){
 		if (!buttonStates.ContainsKey (key)) {
@@ -28,9 +19,13 @@ public class InputState : MonoBehaviour {
 		var state = buttonStates [key];
 
 		if (state.value && !value) {
-			Debug.Log ("Button " +key+ " released.");
+			Debug.Log ("Button " +key+ " released: " + state.holdTime);
+			state.holdTime = 0;
 		} else if (state.value && value) {
-			Debug.Log ("Button " +key+ " pressed.");
+			
+			state.holdTime += Time.deltaTime;
+
+			Debug.Log ("Button " +key+ " pressed: " + state.holdTime + " seconds.");
 		}
 
 		state.value = value;
