@@ -16,9 +16,10 @@ public class SimpleMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (inputState != null) {
+		
 			var right = inputState.GetButtonValue (input [0]);
 			var left = inputState.GetButtonValue (input [1]);
+
 			var velX = speed;
 
 			if (right || left) {
@@ -28,6 +29,6 @@ public class SimpleMovement : MonoBehaviour {
 			}
 
 			body2d.velocity = new Vector2 (velX, body2d.velocity.y);
-		}
+
 	}
 }

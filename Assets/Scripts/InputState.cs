@@ -32,7 +32,7 @@ public class InputState : MonoBehaviour {
 	}
 
 	public bool GetButtonValue(Buttons key){
-		if (buttonStates.ContainsKey (key) ) {
+		if (buttonStates.ContainsKey (key)) {
 			return buttonStates [key].value;
 		} else {
 			return false;
