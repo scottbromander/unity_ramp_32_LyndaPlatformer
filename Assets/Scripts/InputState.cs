@@ -19,13 +19,13 @@ public class InputState : MonoBehaviour {
 		var state = buttonStates [key];
 
 		if (state.value && !value) {
-			Debug.Log ("Button " +key+ " released: " + state.holdTime);
+//			Debug.Log ("Button " +key+ " released: " + state.holdTime);
 			state.holdTime = 0;
 		} else if (state.value && value) {
 			
 			state.holdTime += Time.deltaTime;
 
-			Debug.Log ("Button " +key+ " pressed: " + state.holdTime + " seconds.");
+//			Debug.Log ("Button " +key+ " pressed: " + state.holdTime + " seconds.");
 		}
 
 		state.value = value;

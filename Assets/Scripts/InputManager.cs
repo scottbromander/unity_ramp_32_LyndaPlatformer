@@ -47,9 +47,9 @@ public class InputManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		foreach (var input in inputs) {
-			if (input.value) {
+			
 				inputState.SetButtonValue (input.button, input.value);
-			}
+
 		}
 	}
 }
