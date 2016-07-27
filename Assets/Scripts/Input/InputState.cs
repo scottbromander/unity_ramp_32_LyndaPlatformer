@@ -15,8 +15,21 @@ public enum Directions {
 public class InputState : MonoBehaviour {
 
 	public Directions direction = Directions.Right;
+	private float absVelX = 0f;
+	private float absVelY = 0f;
+
+	private Rigidbody2D body2d;
 
 	private Dictionary<Buttons, ButtonState> buttonStates = new Dictionary<Buttons, ButtonState> ();
+
+	void Awake(){
+		body2d = GetComponent<Rigidbody2D> ();
+	}
+
+	void FixedUpdate(){
+		absVelX = Mathf.Abs (body2d.velocity.x);
+		absVelY = Mathf.Abs (body2d.velocity.y);
+	}
 
 	public void SetButtonValue(Buttons key, bool value){
 		if (!buttonStates.ContainsKey (key)) {
