@@ -15,8 +15,8 @@ public enum Directions {
 public class InputState : MonoBehaviour {
 
 	public Directions direction = Directions.Right;
-	private float absVelX = 0f;
-	private float absVelY = 0f;
+	public float absVelX = 0f;
+	public float absVelY = 0f;
 
 	private Rigidbody2D body2d;
 
