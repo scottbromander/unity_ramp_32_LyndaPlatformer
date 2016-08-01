@@ -6,6 +6,7 @@ public class Jump : AbstractBehavior {
 	public float jumpSpeed = 200f;
 	public float jumpDelay = .1f;
 	public int jumpCount = 2;
+	public GameObject dustEffectPrefab;
 
 	protected float lastJumpTime = 0;
 	protected int jumpsRemaining = 0;
@@ -30,6 +31,8 @@ public class Jump : AbstractBehavior {
 				if (jumpsRemaining > 0) {
 					OnJump ();
 					jumpsRemaining--;
+					var clone = Instantiate (dustEffectPrefab);
+					clone.transform.position = new Vector2(transform.position.x, transform.position.y - 8);
 				}
 			}
 		}
