@@ -3,6 +3,7 @@ using System.Collections;
 
 public class LongJump : Jump {
 
+	[Header("Jump Details")]
 	public float longJumpDelay = .15f;
 	public float longJumpMultiplier = 1.5f;
 	public bool canLongJump;
