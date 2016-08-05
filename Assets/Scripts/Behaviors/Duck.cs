@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Duck : AbstractBehavior {
-
 	public float scale = .5f;
 	public bool ducking;
 	public float centerOffsetY = 0f;
@@ -37,8 +36,7 @@ public class Duck : AbstractBehavior {
 		circleCollider.radius = size;
 		circleCollider.offset = new Vector2 (circleCollider.offset.x, newOffsetY);
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		var canDuck = inputState.GetButtonValue (inputButtons [0]);
 		if (canDuck && collisionState.standing && !ducking) {
