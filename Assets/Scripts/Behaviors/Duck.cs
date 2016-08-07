@@ -19,6 +19,8 @@ public class Duck : AbstractBehavior {
 	protected virtual void OnDuck(bool value){
 		ducking = value;
 
+		ToggleScripts (!ducking);
+
 		var size = circleCollider.radius;
 
 		float newOffsetY;
