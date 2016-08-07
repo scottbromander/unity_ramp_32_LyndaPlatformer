@@ -5,13 +5,16 @@ public class WallSlide : StickToWall {
 
 	public float slideVelocity = -5f;
 	public float slideMultiplier = 5f;
+	public GameObject dustPrefab;
+	public float dustSpawnDelay = 0.5f;
+	private float timeElapsed = 0f;
 
 
 	// Update is called once per frame
 	override protected void Update () {
 		base.Update ();
 
-		if (onWallDetected) {
+		if (onWallDetected && !collisionState.standing) {
 			var velY = slideVelocity;
 
 			if(inputState.GetButtonValue(inputButtons[0])){
@@ -19,6 +22,17 @@ public class WallSlide : StickToWall {
 			}
 
 			body2d.velocity = new Vector2 (body2d.velocity.x, velY);
+
+			if (timeElapsed > dustSpawnDelay) {
+				var dust = Instantiate (dustPrefab);
+				var pos = transform.position;
+				pos.y += 2;
+				dust.transform.position = pos;
+				dust.transform.localScale = transform.localScale;
+				timeElapsed = 0;
+			}
+
+			timeElapsed += Time.deltaTime;
 		}
 	}
 
@@ -27,7 +41,6 @@ public class WallSlide : StickToWall {
 	}
 
 	override protected void OffWall(){
-
-		//Makes it do nothing
+		timeElapsed = 0;
 	}
 }
