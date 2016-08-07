@@ -4,6 +4,7 @@ using System.Collections;
 public class WallSlide : StickToWall {
 
 	public float slideVelocity = -5f;
+	public float slideMultiplier = 5f;
 
 
 	// Update is called once per frame
@@ -12,6 +13,10 @@ public class WallSlide : StickToWall {
 
 		if (onWallDetected) {
 			var velY = slideVelocity;
+
+			if(inputState.GetButtonValue(inputButtons[0])){
+				velY *= slideMultiplier;
+			}
 
 			body2d.velocity = new Vector2 (body2d.velocity.x, velY);
 		}
