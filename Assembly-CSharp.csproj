@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Effects\DustEffect.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\Input\InputState.cs" />
+     <Compile Include="Assets\Scripts\Items\FireBall.cs" />
      <Compile Include="Assets\Scripts\Items\PowerUpFlower.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
  <Reference Include="UnityEngine.Networking">
