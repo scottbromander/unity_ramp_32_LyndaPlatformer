@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Behaviors\Duck.cs" />
      <Compile Include="Assets\Scripts\Behaviors\Equip.cs" />
      <Compile Include="Assets\Scripts\Behaviors\FaceDirection.cs" />
+     <Compile Include="Assets\Scripts\Behaviors\FireProjectile.cs" />
      <Compile Include="Assets\Scripts\Behaviors\Jump.cs" />
      <Compile Include="Assets\Scripts\Behaviors\LongJump.cs" />
      <Compile Include="Assets\Scripts\Behaviors\SimpleMovement.cs" />
